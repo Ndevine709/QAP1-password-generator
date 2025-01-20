@@ -35,6 +35,13 @@ function generatePassword() {
     }
     length = parsedValue;
   }
+
+  // For loop to generate a random password based on the default length of 8 or the arguement you passed.
+  for (var i = 0, n = validChars.length; i < length; i++) {
+    // Appending the random characters to the password variable.
+    password += validChars.charAt(Math.floor(Math.random() * n));
+  }
+  return password;
 }
 
 // Function for the help message. when the user passes --help, --h, or help, the application will call this function and display a helpful message to the user.
@@ -63,6 +70,9 @@ function displayHelp() {
 
         --length <number>        Set how long you want the password to be, replace <number> with your desired amount
         `);
-
   process.exit(0);
 }
+
+// Calling the generatePassword function and displaying your fresh new password.
+let result = generatePassword();
+console.log(`your password is: ${result}`);
