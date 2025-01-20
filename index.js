@@ -19,7 +19,22 @@ function generatePassword() {
     arguements.includes("help")
   ) {
     displayHelp();
-  }  
+  }
+
+  // Finding the length flag in the arguements array, making sure it has a value after it, parsing the value and running some validation.
+  // If the parsed value makes it past validation, the default length value gets replaced with the value the user entered.
+  // If nothing is passed for --length, application will use the default length of 8 characters.
+  const indexOfLength = arguements.indexOf("--length");
+  if (indexOfLength !== -1 && arguements[indexOfLength + 1]) {
+    const parsedValue = parseInt(arguements[indexOfLength + 1], 10);
+    if (parsedValue < 8 || isNaN(parsedValue)) {
+      console.error(
+        "Your password must be at least a length of 8, and must be a numerical value. Please type node index.js --help for more info."
+      );
+      process.exit(0);
+    }
+    length = parsedValue;
+  }
 }
 
 // Function for the help message. when the user passes --help, --h, or help, the application will call this function and display a helpful message to the user.
@@ -51,4 +66,3 @@ function displayHelp() {
 
   process.exit(0);
 }
-
