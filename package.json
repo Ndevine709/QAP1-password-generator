@@ -1,0 +1,11 @@
+{
+  "name": "password-generator-qap1",
+  "version": "1.0.0",
+  "description": "A CLI application that will generate a password for the user based on the arguments provided",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Noah Devine",
+  "license": "MIT"
+}
